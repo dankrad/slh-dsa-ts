@@ -1,0 +1,88 @@
+{
+  "recordedAt": "2026-11-26T07:47:43.461682+00:00",
+  "status": "passed",
+  "reference": {
+    "repository": "https://github.com/danrobinson/rust-pq",
+    "commit": "462724e2b5f8ffe63a2ce76c9b1ab07099c1807b",
+    "trackedCheckoutUnmodified": true
+  },
+  "environment": {
+    "node": "24.22.3",
+    "rustc": "1.100.0",
+    "cargo": "1.100.0"
+  },
+  "ownedUniqueTestsPassed": 946,
+  "runs": [
+    {
+      "command": "npm test",
+      "scope": "Initial shell glob included 12 ACVP/differential parameter files, boundaries.test.ts and corpus.test.ts; modes and reviewer files were added later.",
+      "log": "test/.results/slh-dsa-test-initial.log",
+      "tests": 926,
+      "pass": 926,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 629099.151553
+    },
+    {
+      "command": "npx tsx --test test/modes.test.ts",
+      "scope": "Final corrected mode tests; initial harness assumption about optional internal randomness was fixed.",
+      "log": "test/.results/slh-dsa-modes-final.log",
+      "tests": 20,
+      "pass": 20,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 121121.972129
+    }
+  ],
+  "acvp": {
+    "parameterSets": 12,
+    "keyGen": 120,
+    "sigGen": 336,
+    "sigVer": 336,
+    "validSigVer": 48,
+    "invalidSigVer": 288,
+    "totalCases": 792,
+    "copiedFilesByteIdenticalToReference": true
+  },
+  "differential": {
+    "keypairs": 12,
+    "internalSignatures": 12,
+    "externalSignatures": 12,
+    "nodeTests": 36,
+    "liveRustVerifiedTypeScriptSignatures": 24,
+    "regenerationByteIdentical": true
+  },
+  "additionalChecks": {
+    "strictTypecheckTestsAndScripts": "passed",
+    "finalRepairedManifestCorpusRerun": {
+      "tests": 2,
+      "pass": 2,
+      "fail": 0,
+      "skipped": 0
+    },
+    "sha256sumCheck": "passed after refreshing only stale manifest.json hash"
+  },
+  "reviewerTests": {
+    "tests": 5,
+    "assertions": 1027,
+    "status": "passed as reported and separately executed by coordinator; not included in ownedUniqueTestsPassed"
+  },
+  "sha256": {
+    "src/index.ts": "661f2c1e6ddad2ffc90e9cb350d50b5790f7be1499322d289b84e33825d1eac7",
+    "src/params.ts": "ee0c7e1636a905a8ed17f939ed0543275386fc425ebd574c4ae5a14a449697be",
+    "vectors/manifest.json": "24143e705b9a0fcb64583b2d647f8f163af7f20e3b0f71d80177a6d589a23876",
+    "vectors/rust-differential.json": "45f922d9c570f923067be936717a194d017fa7187727ac5cbc9d42c3be748c1a"
+  },
+  "limitations": [
+    "No formal proof of TypeScript or Node/OpenSSL correctness",
+    "No constant-time or reliable secret-erasure guarantee",
+    "HashSLH-DSA excluded by scope",
+    "Node 22 runtime not directly tested here",
+    "Upstream does not record original NIST ACVP-Server commit",
+    "No single later npm test invocation of all 951 tests; all owned tests and separate reviewer tests passed across stated invocations"
+  ]
+}

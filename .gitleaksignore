@@ -1,0 +1,14 @@
+# Synthetic, publicly reproducible SLH-DSA test secret keys generated from fixed seeds.
+# Only these exact generic-api-key findings are ignored.
+vectors/rust-differential.json:generic-api-key:13
+vectors/rust-differential.json:generic-api-key:26
+vectors/rust-differential.json:generic-api-key:39
+vectors/rust-differential.json:generic-api-key:52
+vectors/rust-differential.json:generic-api-key:65
+vectors/rust-differential.json:generic-api-key:78
+vectors/rust-differential.json:generic-api-key:91
+vectors/rust-differential.json:generic-api-key:104
+vectors/rust-differential.json:generic-api-key:117
+vectors/rust-differential.json:generic-api-key:130
+vectors/rust-differential.json:generic-api-key:143
+vectors/rust-differential.json:generic-api-key:156

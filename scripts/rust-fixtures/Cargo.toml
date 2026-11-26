@@ -1,0 +1,10 @@
+[package]
+name = "slh-dsa-ts-reference-fixtures"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+slhdsa = { path = "../../../reference/rust" }
+serde_json = "1"
+hex = "0.4"
