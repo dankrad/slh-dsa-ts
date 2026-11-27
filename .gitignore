@@ -4,3 +4,11 @@ dist/
 .env*
 reference/
 target/
+
+# Lean proof build outputs
+formal/.lake/
+*.olean
+*.ilean
+*.olean.server
+*.olean.private
+*.trace
