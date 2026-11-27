@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "overallStatus": "partial; no end-to-end TypeScript keygen/sign/verify theorem",
+  "sourceCommit": "ff9b659c548ac0e7de972441954f0c73e8aafe4d",
+  "sourceSha256": {
+    "src/index.ts": "661f2c1e6ddad2ffc90e9cb350d50b5790f7be1499322d289b84e33825d1eac7",
+    "src/params.ts": "ee0c7e1636a905a8ed17f939ed0543275386fc425ebd574c4ae5a14a449697be"
+  },
+  "claims": [
+    {
+      "kind": "source-extracted-interpreter-refinement",
+      "sourceFunction": "toInt",
+      "theorem": "TSExtracted.toInt_source_correct",
+      "file": "Generated/ToIntCorrect.lean",
+      "trusted": ["TypeScript parser", "structural extractor", "small nonnegative-BigInt interpreter's ECMAScript adequacy", "ordinary stable Uint8Array inputs and pristine runtime builtins"]
+    },
+    {
+      "kind": "independent-model-refinement-not-source-proof",
+      "file": "Proofs/Parameters.lean",
+      "scope": "12 parameter rows, derived lengths and index bounds"
+    },
+    {
+      "kind": "independent-model-refinement-not-source-proof",
+      "file": "Proofs/Framing.lean",
+      "scope": "context framing, injectivity and conditional external composition"
+    },
+    {
+      "kind": "independent-model-refinement-not-source-proof",
+      "file": "Proofs/Loops.lean",
+      "scope": "loop identities, chain/tree recursion and final scratch-root omission"
+    }
+  ],
+  "notProved": [
+    "Remaining TypeScript source functions",
+    "keygenInternal/signInternal/verifyInternal functional refinement",
+    "External API validation, exceptions and randomness",
+    "Number/Int32 arithmetic and mutable Uint8Array/DataView semantics",
+    "Node hash-provider contracts and runtime correctness",
+    "Cryptographic security, constant-time execution or secret erasure"
+  ]
+}

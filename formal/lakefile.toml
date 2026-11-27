@@ -1,0 +1,12 @@
+name = "slhdsa_ts_proofs"
+version = "0.1.0"
+defaultTargets = ["Proofs"]
+
+[[lean_lib]]
+name = "Spec"
+
+[[lean_lib]]
+name = "Proofs"
+
+[[lean_lib]]
+name = "Generated"

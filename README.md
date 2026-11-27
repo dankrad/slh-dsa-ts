@@ -6,6 +6,8 @@ Independent Node.js/TypeScript implementation of the twelve **pure SLH-DSA** par
 
 **This TypeScript implementation is not formally verified.** It is designed for byte-for-byte conformance testing against NIST vectors and the Rust implementation at [`danrobinson/rust-pq`, commit `462724e`](https://github.com/danrobinson/rust-pq/tree/462724e2b5f8ffe63a2ce76c9b1ab07099c1807b). That repository contains a Lean specification and proofs of its Rust implementation. Those proofs do not apply to this independent TypeScript port. Tests establish agreement only on the tested inputs, not for all inputs.
 
+A [partial Lean proof suite](formal/README.md) checks the source-extracted `toInt` helper under a small trusted semantics, plus separate parameter, framing and loop models. It does **not** establish end-to-end TypeScript correctness.
+
 The port follows [`lean/Spec/SlhDsa.lean`](https://github.com/danrobinson/rust-pq/blob/462724e2b5f8ffe63a2ce76c9b1ab07099c1807b/lean/Spec/SlhDsa.lean). Hash primitives use Node's `node:crypto`, adding Node/OpenSSL to the trusted runtime. No claim of constant-time JavaScript execution or reliable secret erasure is made. Treat this as research code, not an audited production signer.
 
 ## Development

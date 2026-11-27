@@ -23,13 +23,37 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm run build
       - run: npm test
+  formal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Install checksum-pinned Lean 4.36.0
+        env:
+          LEAN_SHA256: 2b7ab1ed8b92d2e6abfaf41344823b510064dbc9c0260cac73eb496ab2dea6eb
+        run: |
+          archive="$RUNNER_TEMP/lean-4.36.0-linux.tar.zst"
+          curl --fail --location --retry 3 --output "$archive" \
+            https://github.com/leanprover/lean4/releases/download/v4.36.0/lean-4.36.0-linux.tar.zst
+          printf '%s  %s\n' "$LEAN_SHA256" "$archive" | sha256sum --check --strict
+          tar --zstd -xf "$archive" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/lean-4.36.0-linux/bin" >> "$GITHUB_PATH"
+      - run: npm run proof:check
   gate:
     name: CI Gate
     if: always()
-    needs: [conformance]
+    needs: [conformance, formal]
     runs-on: ubuntu-latest
     steps:
-      - name: Require conformance
+      - name: Require conformance and formal proofs
         env:
-          RESULT: ${{ needs.conformance.result }}
-        run: test "$RESULT" = success
+          CONFORMANCE: ${{ needs.conformance.result }}
+          FORMAL: ${{ needs.formal.result }}
+        run: test "$CONFORMANCE" = success && test "$FORMAL" = success

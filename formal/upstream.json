@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/danrobinson/rust-pq",
+  "revision": "462724e2b5f8ffe63a2ce76c9b1ab07099c1807b",
+  "sourceDirectory": "lean/Spec",
+  "license": "MIT (repository root LICENSE)",
+  "files": {
+    "Spec/Sha256.lean": "1d9461421388a88868fe247a78671fec8ae2a0bceba406a8a89dbae50393dd67",
+    "Spec/Sha512.lean": "67fb39e039c6b88fb7539b0953e3eb464dc7aa502611de36bd3ba0a82417286a",
+    "Spec/Shake256.lean": "fff6af29d32bdad526c8e2c93ae69a44c700c863d9794969040d223cc621b015",
+    "Spec/SlhDsa.lean": "1a7d5083c64c828289c256270a97b849c910ad1671622b3379a730488f555fcc"
+  }
+}

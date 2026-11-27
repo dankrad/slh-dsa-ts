@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 2,
+  "typescriptVersion": "5.9.3",
+  "upstreamSpecification": {
+    "repository": "danrobinson/rust-pq",
+    "commit": "462724e2b5f8ffe63a2ce76c9b1ab07099c1807b",
+    "file": "formal/Spec/SlhDsa.lean",
+    "sha256": "1a7d5083c64c828289c256270a97b849c910ad1671622b3379a730488f555fcc"
+  },
+  "extractorSha256": "14147a7cfd402238b70fd1d52796ed78aa8d7889bd18c766f77de7b35f4e0050",
+  "functionSourceSha256": "f2f70fe8bc40cf134a518ca5d3fe407ad127b6efdf1537e36ad4581dc5579170",
+  "source": "src/index.ts",
+  "start": 2247,
+  "end": 2392,
+  "startLine": 55,
+  "endLine": 59,
+  "functionSource": "function toInt(bytes: Uint8Array): bigint {\n  let value = 0n;\n  for (const byte of bytes) value = (value << 8n) | BigInt(byte);\n  return value;\n}",
+  "program": {
+    "functionName": "toInt",
+    "inputName": "bytes",
+    "accumulatorName": "value",
+    "byteName": "byte",
+    "initial": {
+      "kind": "bigintLiteral",
+      "value": "0"
+    },
+    "step": {
+      "kind": "bitOr",
+      "left": {
+        "kind": "shiftLeft",
+        "left": {
+          "kind": "var",
+          "name": "value"
+        },
+        "right": {
+          "kind": "bigintLiteral",
+          "value": "8"
+        }
+      },
+      "right": {
+        "kind": "toBigInt",
+        "argument": {
+          "kind": "var",
+          "name": "byte"
+        }
+      }
+    },
+    "result": {
+      "kind": "var",
+      "name": "value"
+    }
+  },
+  "sourceSha256": "661f2c1e6ddad2ffc90e9cb350d50b5790f7be1499322d289b84e33825d1eac7",
+  "trust": "Parser/extractor and ECMAScript adequacy are unproved; hash is provenance/freshness only."
+}
